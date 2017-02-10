@@ -1,0 +1,38 @@
+Debian 8 Jessie
+Docker
+Install
+apt-get install apt-transport-https ca-certificates
+apt-get update && apt-get install docker-engine
+
+Start and control docker service
+systemctl start docker
+systemctl enable docker
+systemctl status docker
+
+Check if docker runs
+Downloads image and runs it in container
+docker run hello-world
+
+Show all containers
+docker ps -a 
+Show all running containers 
+docker ps
+Delete all stopped containers
+docker rm $(docker ps -a -q)
+
+Show images
+docker images -q
+Delete all images
+docker rmi $(docker images -q)
+
+
+Version 
+docker --version
+
+Docker-compose
+Download
+curl -L https://github.com/docker/compose/releases/download/1.7.0/docker-compose-`uname -s`-`uname -m` > /usr/localbin/docker-compose
+Make executable
+chmod +x /usr/local/bin/docker-compose
+Check version
+docker-compose --version
